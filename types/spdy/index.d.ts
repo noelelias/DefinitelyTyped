@@ -63,7 +63,7 @@ export namespace server {
                             options: https.ServerOptions,
                             handler: (request: IncomingMessage, response: ServerResponse | http.ServerResponse) => void): Server;
     function create(options: https.ServerOptions,
-                            handler: (request: IncomingMessage, response: http.ServerResponse) => void): Server;
+                            handler: (request: IncomingMessage, response: ServerResponse | http.ServerResponse) => void): Server;
     function create(handler: (request: IncomingMessage, response: ServerResponse | http.ServerResponse) => void): Server;
 
     type Protocol =
@@ -116,10 +116,10 @@ export function createAgent(options: AgentOptions): Agent | PlainAgent;
 export function createServer(
     base: any,
     options: ServerOptions,
-    handler: (request: IncomingMessage, response: http.ServerResponse) => void,
+    handler: (request: IncomingMessage, response: ServerResponse) => void,
 ): Server;
 export function createServer(
     options: ServerOptions,
-    handler: (request: IncomingMessage, response: http.ServerResponse) => void,
+    handler: (request: IncomingMessage, response: ServerResponse) => void,
 ): Server;
 export function createServer(handler: (request: IncomingMessage, response: http.ServerResponse) => void): Server;
